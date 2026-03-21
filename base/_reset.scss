@@ -11,3 +11,35 @@ li {
   flex-wrap: wrap;
   width: 100%;
 }
+
+button {
+  background: $sec-color;
+  color: $f-color;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    filter: brightness(1.2);
+    box-shadow: 0 0 15px $sec-color;
+  }
+}
+
+%icon-box {
+  border: 1px solid $sec-color;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  @extend %flex-center;
+  color: $sec-color;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background: $sec-color;
+    color: $f-color;
+  }
+}

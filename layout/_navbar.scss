@@ -1,22 +1,36 @@
 $padding: 4px;
 nav {
+  @extend %flex;
+
+  margin-top: $m-top;
+  padding: 20px 8%;
+  @extend %border;
+
   .logo {
     padding: $padding;
+    font-family: $global-font;
+    font-weight: bold;
+    font-size: 24px;
+    color: $f-color;
+    cursor: pointer;
 
+    @include gradientColor();
   }
-}
-nav {
-  @extend %flex;
-  @extend %border;
-  margin-top: $m-top;
 
   .links {
     ul {
       @extend %flex;
       gap: 50px;
+
       li {
         padding: $padding;
-        font-family: $global-font;
+        font-size: 16px;
+        color: $f-sec-color;
+        transition: 0.3s;
+        cursor: pointer;
+        &:hover {
+          color: $sec-color;
+        }
       }
     }
   }

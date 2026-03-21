@@ -1,8 +1,13 @@
-//Media Query
+
 @mixin gradient($direction, $color1, $color2) {
   background: linear-gradient($direction, $color1, $color2);
 }
-
+@mixin gradientColor($direction :to top, $color1 :#8750F7, $color2 :#ffff) {
+  background: linear-gradient($direction, $color1, $color2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 @mixin grid-layout($cols: 12, $gap: 20px) {
   display: grid;
   grid-template-columns: repeat($cols, 1fr);

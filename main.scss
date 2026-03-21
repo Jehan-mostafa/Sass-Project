@@ -13,6 +13,7 @@
 
 body {
   @extend %container ;
-  @include gradient(to right, $primary-color, $sec-color);
+ background: $primary-color;
+ font-family: $global-font;
   color: $f-color;
 }

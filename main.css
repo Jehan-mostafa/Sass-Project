@@ -188,9 +188,15 @@
     width: 100%;
   }
 }
-nav .links ul, nav {
+.heroSectionContent .i-social, .heroSection, nav .links ul, nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.heroSection div.statsBar > div, .heroSectionImg, .heroSectionContent .i-social .fa-linkedin-in, .heroSectionContent .i-social .fa-github {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -219,19 +225,63 @@ li {
   width: 100%;
 }
 
-nav .logo {
-  padding: 4px;
+button {
+  background: #8750F7;
+  color: white;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 0 15px #8750F7;
+}
+
+.heroSectionContent .i-social .fa-linkedin-in, .heroSectionContent .i-social .fa-github {
+  border: 1px solid #8750F7;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: #8750F7;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.heroSectionContent .i-social .fa-linkedin-in:hover, .heroSectionContent .i-social .fa-github:hover {
+  background: #8750F7;
+  color: white;
 }
 
 nav {
   margin-top: 10px;
+  padding: 20px 8%;
+}
+nav .logo {
+  padding: 4px;
+  font-family: "IBM Plex Serif", serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(to top, #8750F7, white);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 nav .links ul {
   gap: 50px;
 }
 nav .links ul li {
   padding: 4px;
-  font-family: "IBM Plex Serif", serif;
+  font-size: 16px;
+  color: #b1b1b1;
+  transition: 0.3s;
+  cursor: pointer;
+}
+nav .links ul li:hover {
+  color: #8750F7;
 }
 
 @media (min-width: 0px) {
@@ -425,29 +475,52 @@ nav .links ul li {
   }
 }
 .heroSection {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 30px 0px;
+  flex-wrap: wrap;
+  padding: 60px 5%;
+  margin: 30px 0;
+  position: relative;
+  background: radial-gradient(circle at 85% 30%, rgba(135, 80, 247, 0.15), transparent 80%);
 }
 .heroSectionContent {
-  flex: 0 0 45%;
+  flex: 0 0 50%;
+}
+.heroSectionContent h2 {
+  margin: 10px 0;
+}
+.heroSectionContent h1 {
+  font-size: 60px;
+  font-weight: bold;
+  background: linear-gradient(to top, #8750F7, white);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.heroSectionContent p {
+  margin: 10px 0;
+  font-size: 22px;
+  color: #b1b1b1;
+  width: 85%;
+  font-family: "IBM Plex Serif", serif;
+}
+.heroSectionContent .i-social {
+  justify-content: flex-start;
+  gap: 15px;
+  margin-top: 10px;
 }
 .heroSectionImg {
-  flex: 0 0 45%;
-  display: flex;
-  justify-content: center;
+  flex: 0 0 40%;
 }
 .heroSectionImg .polygon-border {
-  width: 80%;
-  max-width: 350px;
+  width: 100%;
+  max-width: 380px;
   aspect-ratio: 1;
   background: #8750F7;
+  filter: drop-shadow(0 0 20px rgba(135, 80, 247, 0.4));
   clip-path: polygon(100% 50%, 90.45% 79.39%, 65.45% 97.55%, 34.55% 97.55%, 9.55% 79.39%, 0% 50%, 9.55% 20.61%, 34.55% 2.45%, 65.45% 2.45%, 90.45% 20.61%, 100% 50%);
 }
 .heroSectionImg .polygon-border .polygon {
-  width: 99%;
-  height: 99%;
+  width: 98%;
+  height: 98%;
   clip-path: inherit;
 }
 .heroSectionImg .polygon-border .polygon img {
@@ -458,8 +531,27 @@ nav .links ul li {
   -o-object-position: top center;
      object-position: top center;
 }
+.heroSection div.statsBar > div span:first-child {
+  font-size: 40px;
+  font-weight: bold;
+}
+.heroSection div.statsBar {
+  padding: 20px 0;
+  margin-top: 30px;
+}
+.heroSection div.statsBar > div {
+  gap: 15px;
+}
+.heroSection div.statsBar > div span:last-child {
+  display: inline-block;
+  max-width: 100px;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #b1b1b1;
+}
 
 body {
-  background: linear-gradient(to right, #050709, #8750F7);
+  background: #050709;
+  font-family: "IBM Plex Serif", serif;
   color: white;
 }/*# sourceMappingURL=main.css.map */

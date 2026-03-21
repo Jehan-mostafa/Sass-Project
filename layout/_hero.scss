@@ -1,26 +1,68 @@
 @import "../abstracts/mixins";
-// copy from https://css-generators.com/polygon-shape/
-.heroSection {
-  display: flex;
-  justify-content: space-between;
-  @extend %border;
-  align-items: center;
-  margin: $m-y-sec 0px;
-  &Content {
-    flex: 0 0 45%;
-    @extend %border;
-  }
 
+.heroSection {
+  @extend %border;
+  @extend %flex;
+
+  flex-wrap: wrap;
+  padding: $padding-sec;
+  margin: $m-y-sec 0;
+  position: relative;
+
+  background: radial-gradient(
+    circle at 85% 30%,
+    rgba($sec-color, 0.15),
+    transparent 80%
+  );
+  // Content => Left
+  &Content {
+    @extend %border;
+    flex: 0 0 50%;
+
+    h2 {
+      margin: $m-top 0;
+    }
+
+    h1 {
+      font-size: 60px;
+      font-weight: bold;
+      @include gradientColor();
+    }
+
+    p {
+      margin: $m-top 0;
+      font-size: 22px;
+      color: $f-sec-color;
+      width: 85%;
+      font-family: $global-font;
+    }
+    .i-social {
+      @extend %flex;
+      justify-content: flex-start;
+      gap: 15px;
+      margin-top: $m-top;
+
+      .fa-github {
+        @extend %icon-box;
+      }
+      .fa-linkedin-in {
+        @extend %icon-box;
+      }
+    }
+  }
+  // Img => Right
   &Img {
     @extend %border;
-    flex: 0 0 45%;
-    display: flex;
-    justify-content: center;
+    flex: 0 0 40%;
+    @extend %flex-center;
+
     .polygon-border {
-      width: 80%;
-      max-width: 350px;
+      width: 100%;
+      max-width: 380px;
       aspect-ratio: 1;
       background: $sec-color;
+
+      filter: drop-shadow(0 0 20px rgba($sec-color, 0.4));
 
       clip-path: polygon(
         100% 50%,
@@ -37,9 +79,8 @@
       );
 
       .polygon {
-        width: 99%;
-        height: 99%;
-
+        width: 98%;
+        height: 98%;
         clip-path: inherit;
 
         img {
@@ -48,6 +89,30 @@
           object-fit: cover;
           object-position: top center;
         }
+      }
+    }
+  }
+  //Stats Bar => Bottom
+  %numbers {
+    font-size: 40px;
+
+    font-weight: bold;
+  }
+  div.statsBar {
+    padding: 20px 0;
+    margin-top: $m-y-sec;
+    > div {
+      @extend %flex-center;
+      gap: 15px;
+      span:first-child {
+        @extend %numbers;
+      }
+      span:last-child {
+        display: inline-block;
+        max-width: 100px;
+        font-size: 16px;
+        line-height: 1.2;
+        color:$f-sec-color;
       }
     }
   }
