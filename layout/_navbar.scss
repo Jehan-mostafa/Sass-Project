@@ -1,0 +1,23 @@
+$padding: 4px;
+nav {
+  .logo {
+    padding: $padding;
+
+  }
+}
+nav {
+  @extend %flex;
+  @extend %border;
+  margin-top: $m-top;
+
+  .links {
+    ul {
+      @extend %flex;
+      gap: 50px;
+      li {
+        padding: $padding;
+        font-family: $global-font;
+      }
+    }
+  }
+}

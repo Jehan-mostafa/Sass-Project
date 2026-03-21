@@ -1,0 +1,37 @@
+//Media Query
+@mixin gradient($direction, $color1, $color2) {
+  background: linear-gradient($direction, $color1, $color2);
+}
+
+@mixin grid-layout($cols: 12, $gap: 20px) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  gap: $gap;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+@mixin layout($col, $breakPoint, $range) {
+  @media (min-width: $range) {
+    @if ($breakPoint == "") {
+      @for $i from 1 through $col {
+        .col-#{$i} {
+          width: ($i / $col) * 100%;
+        }
+      }
+    } @else {
+      @for $i from 1 through $col {
+        .col-#{$breakPoint}-#{$i} {
+          width: ($i / $col) * 100%;
+        }
+      }
+    }
+  }
+}
+@include layout(12, "", 0px);
+@include layout(12, "sm", 400px);
+@include layout(12, "md", 600px);
+@include layout(12, "lg", 800px);
+@include layout(12, "xlg", 1000px);
