@@ -3,11 +3,11 @@ nav {
   @extend %flex;
 
   margin-top: $m-top;
-  padding: 20px 8%;
-  @extend %border;
+  padding: 20px 5%;
+
 
   .logo {
-    padding: $padding;
+    // padding: $padding;
     font-family: $global-font;
     font-weight: bold;
     font-size: 24px;

@@ -1,7 +1,7 @@
 @import "../abstracts/mixins";
 
 .heroSection {
-  @extend %border;
+
   @extend %flex;
 
   flex-wrap: wrap;
@@ -16,7 +16,7 @@
   );
   // Content => Left
   &Content {
-    @extend %border;
+
     flex: 0 0 50%;
 
     h2 {
@@ -34,7 +34,8 @@
       font-size: 22px;
       color: $f-sec-color;
       width: 85%;
-      font-family: $global-font;
+      line-height: 28px;
+
     }
     .i-social {
       @extend %flex;
@@ -52,7 +53,7 @@
   }
   // Img => Right
   &Img {
-    @extend %border;
+
     flex: 0 0 40%;
     @extend %flex-center;
 
@@ -95,14 +96,15 @@
   //Stats Bar => Bottom
   %numbers {
     font-size: 40px;
-
     font-weight: bold;
   }
   div.statsBar {
     padding: 20px 0;
     margin-top: $m-y-sec;
+
     > div {
       @extend %flex-center;
+      justify-content: flex-start;
       gap: 15px;
       span:first-child {
         @extend %numbers;
