@@ -1,22 +1,19 @@
 @import "../abstracts/mixins";
-
+// copy from https://css-generators.com/polygon-shape/
 .heroSection {
-
   @extend %flex;
-
   flex-wrap: wrap;
   padding: $padding-sec;
   margin: $m-y-sec 0;
   position: relative;
-
   background: radial-gradient(
     circle at 85% 30%,
     rgba($sec-color, 0.15),
     transparent 80%
   );
+
   // Content => Left
   &Content {
-
     flex: 0 0 50%;
 
     h2 {
@@ -35,36 +32,30 @@
       color: $f-sec-color;
       width: 85%;
       line-height: 28px;
-
     }
+
     .i-social {
       @extend %flex;
       justify-content: flex-start;
       gap: 15px;
       margin-top: $m-top;
-
-      .fa-github {
-        @extend %icon-box;
-      }
+      .fa-github,
       .fa-linkedin-in {
         @extend %icon-box;
       }
     }
   }
+
   // Img => Right
   &Img {
-
-    flex: 0 0 40%;
+    flex: 40%;
     @extend %flex-center;
-
     .polygon-border {
       width: 100%;
       max-width: 380px;
       aspect-ratio: 1;
       background: $sec-color;
-
       filter: drop-shadow(0 0 20px rgba($sec-color, 0.4));
-
       clip-path: polygon(
         100% 50%,
         90.45% 79.39%,
@@ -83,7 +74,6 @@
         width: 98%;
         height: 98%;
         clip-path: inherit;
-
         img {
           width: 100%;
           height: 100%;
@@ -93,19 +83,24 @@
       }
     }
   }
-  //Stats Bar => Bottom
+
+  // Stats Bar => Bottom
   %numbers {
     font-size: 40px;
     font-weight: bold;
   }
+
   div.statsBar {
+    width: 100%;
     padding: 20px 0;
     margin-top: $m-y-sec;
 
     > div {
-      @extend %flex-center;
+      @extend %flex;
       justify-content: flex-start;
       gap: 15px;
+      margin-bottom: 20px;
+
       span:first-child {
         @extend %numbers;
       }
@@ -114,7 +109,61 @@
         max-width: 100px;
         font-size: 16px;
         line-height: 1.2;
-        color:$f-sec-color;
+        color: $f-sec-color;
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    &Content {
+      flex: 100%;
+      text-align: center;
+      order: 2;
+
+      p {
+        width: 100%;
+        margin: auto;
+      }
+
+      .i-social {
+        justify-content: center;
+      }
+    }
+
+    &Img {
+      flex: 0 0 100%;
+      order: 1;
+      margin-bottom: 30px;
+
+      .polygon-border {
+        max-width: 300px;
+      }
+    }
+    .statsBar {
+      // order: 0;
+      order: 3;
+    }
+  }
+
+  @media (max-width: 576px) {
+    padding: 20px;
+    &Content {
+      h1 {
+        font-size: 35px;
+      }
+      p {
+        font-size: 18px;
+      }
+    }
+
+    div.statsBar {
+      > div {
+        flex: 0 0 100%;
+        justify-content: center;
+
+        span:first-child {
+          font-size: 32px;
+        }
       }
     }
   }
