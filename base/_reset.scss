@@ -5,6 +5,7 @@
 }
 li {
   list-style: none;
+  cursor: pointer;
 }
 .row {
   display: flex;
@@ -12,22 +13,24 @@ li {
   width: 100%;
 }
 
+
 button {
   background: $sec-color;
-  color: $f-color;
   border: none;
-  padding: 12px 40px;
+  padding: 12px 30px;
   border-radius: 50px;
-  font-weight: 600;
+  color: $f-color;
+  font-weight: bold;
   cursor: pointer;
+  @extend %flex;
+  gap: 10px;
   transition: 0.3s;
 
   &:hover {
-    filter: brightness(1.2);
-    box-shadow: 0 0 15px $sec-color;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba($sec-color, 0.3);
   }
 }
-
 %icon-box {
   border: 1px solid $sec-color;
   width: 45px;
