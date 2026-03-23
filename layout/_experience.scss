@@ -51,77 +51,235 @@
 //     }
 //   }
 // }
+// .experience {
+//   @extend %sec-layout;
+
+//   &Header {
+//     @extend %section-header;
+
+//   }
+
+//   &Content {
+//     @extend %flex-center;
+//     align-items: flex-start;
+//     gap: 40px;
+//     width: 100%;
+//     flex-wrap: wrap;
+
+//     .education,
+//     .work {
+//       flex: 1;
+//       max-width: 480px;
+//       min-width: 320px;
+//       @extend %flex-center;
+//       flex-direction: column;
+
+//       svg {
+//         width: 70px;
+//         height: 70px;
+//         color: $sec-color;
+//         margin-bottom: 30px;
+//         padding: 10px;
+//       }
+
+//       .items {
+//         width: 100%;
+//         .item {
+//           margin-bottom: 25px;
+//           padding: 30px;
+//           width: 100%;
+//           background-color: #140c1c;
+//           border-radius: 20px;
+//           line-height: 1.6;
+//           transition: all 0.4s ease;
+//           border: 1px solid transparent;
+
+//           &:hover {
+//             transform: translateY(-8px);
+//             border-color: $sec-color;
+//             cursor: pointer;
+//             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+//           }
+
+//           span {
+//             @include gradientColor();
+//             font-size: 20px;
+//             font-weight: bold;
+//             display: block;
+//             margin-bottom: 10px;
+//           }
+
+//           h5 {
+//             letter-spacing: 1px;
+//             font-weight: 500;
+//             color: $f-sec-color;
+//             font-size: 22px;
+//             margin-bottom: 8px;
+//           }
+
+//           p {
+//             color: #b5aeae;
+//             font-size: 16px;
+//             margin: 0;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+$bg-primary: #140c1c;
 .experience {
   @extend %sec-layout;
 
   &Header {
     @extend %section-header;
-  
   }
 
   &Content {
-    @extend %flex-center;
-    align-items: flex-start;
-    gap: 40px;
+    position: relative;
+
     width: 100%;
-    flex-wrap: wrap;
+    &::after {
+      content: "";
+      position: absolute;
 
-    .education,
-    .work {
-      flex: 1;
-      max-width: 480px;
-      min-width: 320px;
-      @extend %flex-center;
-      flex-direction: column;
+      @extend %border;
 
-      svg {
-        width: 70px;
-        height: 70px;
-        color: $sec-color;
-        margin-bottom: 30px;
-        padding: 10px;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1px;
+    }
+
+    .item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      transition: all 0.4s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        right: -8px;
+        background-color: $primary-color;
+        border: 3px solid $sec-color;
+        top: 40px;
+        border-radius: 50%;
+        z-index: 1;
+        transition: 0.4s ease;
       }
 
-      .items {
+      &.left {
+        left: 0;
+        .itemContent {
+          text-align: right;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 35px;
+            right: -20px;
+            border-width: 10px;
+            border-style: solid;
+            // border-color: #b5aeae #1215bc hsl(0, 88%, 46%) #1cb3ca;
+            border-color: transparent transparent transparent $bg-primary;
+          }
+        }
+      }
+      .itemContent {
+        padding: 30px;
+        background-color: $bg-primary;
+        position: relative;
+        border-radius: 20px;
+        border: 1px solid transparent;
+        transition: all 0.4s ease;
+
+        &:hover {
+          transform: translateY(-8px);
+          border-color: $sec-color;
+          cursor: pointer;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        span {
+          @include gradientColor();
+          font-size: 20px;
+          font-weight: bold;
+          display: block;
+          margin-bottom: 10px;
+        }
+
+        h5 {
+          letter-spacing: 1px;
+          font-weight: 500;
+          color: $f-sec-color;
+          font-size: 22px;
+          margin-bottom: 8px;
+        }
+
+        p {
+          color: #b5aeae;
+          font-size: 16px;
+          margin: 0;
+        }
+      }
+
+      &.right {
+        left: 50%;
+        &::after {
+          left: -8px;
+        }
+        .itemContent {
+          text-align: left;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 35px;
+            left: -20px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: transparent $bg-primary transparent transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .experience {
+    &Content {
+      &::after {
+        position: absolute;
+        top: 50px;
+        bottom: 50px;
+        left: 7%;
+      }
+
+      .item {
         width: 100%;
-        .item {
-          margin-bottom: 25px;
-          padding: 30px;
-          width: 100%;
-          background-color: #140c1c;
-          border-radius: 20px;
-          line-height: 1.6;
-          transition: all 0.4s ease;
-          border: 1px solid transparent;
+        padding-left: 70px;
+        padding-right: 25px;
 
-          &:hover {
-            transform: translateY(-8px);
-            border-color: $sec-color;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-          }
+        &.left,
+        &.right {
+          left: 0;
+        }
+        .itemContent {
+          text-align: left !important;
 
-          span {
-            @include gradientColor();
-            font-size: 20px;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
-          }
+          //Border => Hidden
 
-          h5 {
-            letter-spacing: 1px;
-            font-weight: 500;
-            color: $f-sec-color;
-            font-size: 22px;
-            margin-bottom: 8px;
+          &::before {
+            display: none;
           }
+        }
 
-          p {
-            color: #b5aeae;
-            font-size: 16px;
-            margin: 0;
-          }
+        &::after {
+          left: 23px !important;
         }
       }
     }
