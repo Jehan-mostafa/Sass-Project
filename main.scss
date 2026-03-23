@@ -1,8 +1,13 @@
+// @import "./node_modules/@fortawesome/fontawesome-free/webfonts";
+// @import "./node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+// @import "./node_modules/@fortawesome/fontawesome-free/scss/solid";
+// @import "./node_modules/@fortawesome/fontawesome-free/scss/brands";
+// @import "./node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "base/typography";
 @import "abstracts/variables";
 @import "abstracts/mixins";
 @import "abstracts/_placeholders";
 
-@import "base/typography";
 @import "base/reset";
 // sections
 @import "layout/navbar";
@@ -11,15 +16,9 @@
 @import "layout/experience";
 @import "layout/contact";
 
-
-
-
-
-
-
 body {
-  @extend %container ;
- background: $primary-color;
- font-family: $global-font;
+  @extend %container;
+  background: $primary-color;
+  font-family: $global-font;
   color: $f-color;
 }
