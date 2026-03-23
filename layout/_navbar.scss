@@ -4,17 +4,28 @@ nav {
 
   margin-top: $m-top;
   padding: 20px 5%;
-
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba($primary-color, 0.9);
 
   .logo {
-    // padding: $padding;
-    font-family: $global-font;
     font-weight: bold;
     font-size: 24px;
     color: $f-color;
     cursor: pointer;
-
     @include gradientColor();
+  }
+
+  .menu {
+    display: none;
+    font-size: 25px;
+    color: $f-color;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      color: $sec-color;
+    }
   }
 
   .links {
@@ -27,9 +38,36 @@ nav {
         font-size: 16px;
         color: $f-sec-color;
         transition: 0.3s;
-        cursor: pointer;
         &:hover {
           color: $sec-color;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px 5%;
+    .menu {
+      display: block;
+    }
+
+    .links {
+      display: none;
+
+      &.active {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: $primary-color;
+        padding: 20px 0;
+        border-bottom: 2px solid rgba($primary-color, 0.9);
+
+        ul {
+          flex-direction: column;
+
+          gap: 20px;
         }
       }
     }
