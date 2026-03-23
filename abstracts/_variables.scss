@@ -9,36 +9,6 @@ $f-sec-color: #dcdbdd;
 $m-y-sec: 30px;
 $global-font: "Poppins", sans-serif;
 $padding-sec: 60px 5%;
+
 ///////////
 
-%section-header {
-  @extend %flex-center;
-  flex-direction: column;
-  line-height: 50px;
-  h2 {
-    font-size: 50px;
-    font-weight: bold;
-    @include gradientColor();
-  }
-  h3 {
-    font-size: 20px;
-    color: $f-sec-color;
-    font-weight: 400;
-    max-width: 700px;
-    line-height: 36px;
-    text-align: center;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      "Open Sans",
-      "Helvetica Neue",
-      sans-serif;
-      margin-bottom: 60px;
-  }
-}

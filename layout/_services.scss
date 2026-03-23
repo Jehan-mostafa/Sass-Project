@@ -1,26 +1,29 @@
 .services {
-  padding: $padding-sec;
+  // padding: $padding-sec;
+  @extend %sec-layout;
+
   &Header {
     @extend %section-header;
   }
   &Content {
-    @extend %flex-center;
+    // @extend %flex-center;
+    // flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
 
-    flex-direction: column;
 
     position: relative;
     div {
-      border-bottom: 2px solid $sec-color;
-      padding: 20px;
+      @extend %flex;
       width: 100%;
-      @extend %border;
+      border-bottom: 2px solid $sec-color;
+      padding: 30px 0;
+
       h4 {
-        text-align: center;
         font-size: 30px;
         font-weight: bold;
 
-        @extend %border;
-        @extend %flex-center;
+        // @extend %flex-center;
         &::before {
           padding-right: 10px;
           font-size: 22px;
@@ -36,6 +39,8 @@
         }
       }
       p {
+        margin: 0 20px;
+
         font-size: 18px;
         color: $f-sec-color;
         font-weight: 400;
@@ -55,7 +60,8 @@
           sans-serif;
       }
 
-      @extend %flex;
+      // @extend %border;
+
       i {
         color: $sec-color;
       }

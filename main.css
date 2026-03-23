@@ -188,29 +188,6 @@
     width: 100%;
   }
 }
-.servicesHeader {
-  flex-direction: column;
-  line-height: 50px;
-}
-.servicesHeader h2 {
-  font-size: 50px;
-  font-weight: bold;
-  background: linear-gradient(to top, #8750F7, white);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.servicesHeader h3 {
-  font-size: 20px;
-  color: #dcdbdd;
-  font-weight: 400;
-  max-width: 700px;
-  line-height: 36px;
-  text-align: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  margin-bottom: 60px;
-}
-
 @media (min-width: 0px) {
   .col-1 {
     width: 8.3333333333%;
@@ -401,13 +378,14 @@
     width: 100%;
   }
 }
-.servicesContent div, .heroSectionContent .i-social, .heroSection, nav .links ul, nav {
+.servicesContent div, .heroSectionContent .i-social, .heroSection, nav .links ul, nav, .experience, .services {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.servicesContent div h4, .servicesContent, .heroSection div.statsBar > div, .heroSectionImg, .heroSectionContent .i-social .fa-linkedin-in, .heroSectionContent .i-social .fa-github, .servicesHeader {
+.experienceContent .education,
+.experienceContent .work, .experienceContent, .heroSection div.statsBar > div, .heroSectionImg, .heroSectionContent .i-social .fa-linkedin-in, .heroSectionContent .i-social .fa-github, .experienceHeader, .servicesHeader {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -418,8 +396,36 @@ body {
   margin: auto;
 }
 
-.servicesContent div h4, .servicesContent div {
-  border: 2px solid red;
+.experience, .services {
+  min-height: 100vh;
+  padding: 60px 5%;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.experienceHeader, .servicesHeader {
+  flex-direction: column;
+  line-height: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.experienceHeader h2, .servicesHeader h2 {
+  font-size: 50px;
+  font-weight: bold;
+  background: linear-gradient(to top, #8750F7, white);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.experienceHeader h3, .servicesHeader h3 {
+  font-size: 20px;
+  color: #dcdbdd;
+  font-weight: 400;
+  max-width: 700px;
+  line-height: 36px;
+  text-align: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin-bottom: 60px;
 }
 
 * {
@@ -763,20 +769,17 @@ nav .links ul li:hover {
   color: #dcdbdd;
 }
 
-.services {
-  padding: 60px 5%;
-}
 .servicesContent {
-  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
   position: relative;
 }
 .servicesContent div {
-  border-bottom: 2px solid #8750f7;
-  padding: 20px;
   width: 100%;
+  border-bottom: 2px solid #8750f7;
+  padding: 30px 0;
 }
 .servicesContent div h4 {
-  text-align: center;
   font-size: 30px;
   font-weight: bold;
 }
@@ -794,6 +797,7 @@ nav .links ul li:hover {
   content: "03";
 }
 .servicesContent div p {
+  margin: 0 20px;
   font-size: 18px;
   color: #dcdbdd;
   font-weight: 400;
@@ -802,6 +806,75 @@ nav .links ul li:hover {
 }
 .servicesContent div i {
   color: #8750f7;
+}
+
+.experienceContent {
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.experienceContent .education,
+.experienceContent .work {
+  flex: 1;
+  max-width: 480px;
+  min-width: 320px;
+  flex-direction: column;
+}
+.experienceContent .education svg,
+.experienceContent .work svg {
+  width: 70px;
+  height: 70px;
+  color: #8750f7;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+.experienceContent .education .items,
+.experienceContent .work .items {
+  width: 100%;
+}
+.experienceContent .education .items .item,
+.experienceContent .work .items .item {
+  margin-bottom: 25px;
+  padding: 30px;
+  width: 100%;
+  background-color: #140c1c;
+  border-radius: 20px;
+  line-height: 1.6;
+  transition: all 0.4s ease;
+  border: 1px solid transparent;
+}
+.experienceContent .education .items .item:hover,
+.experienceContent .work .items .item:hover {
+  transform: translateY(-8px);
+  border-color: #8750f7;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.experienceContent .education .items .item span,
+.experienceContent .work .items .item span {
+  background: linear-gradient(to top, #8750F7, white);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+.experienceContent .education .items .item h5,
+.experienceContent .work .items .item h5 {
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: #dcdbdd;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+.experienceContent .education .items .item p,
+.experienceContent .work .items .item p {
+  color: #b5aeae;
+  font-size: 16px;
+  margin: 0;
 }
 
 body {
